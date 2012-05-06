@@ -1,4 +1,4 @@
-function [dark_channel, index] = find_dark_channel(patch)
+function [dark_channel, index] = find_minimum(patch)
     [patch r_ndx] = min(patch);
     [patch c_ndx] = min(patch);
     [dark_channel a_ndx] = min(patch);
