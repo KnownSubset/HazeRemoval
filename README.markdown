@@ -98,118 +98,154 @@ This is the final image that will have the hazyiness removed.
 ## Results
  
 *Original
+
 ![ny12](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny12/ny12_photo.jpg "ny12") 
 
 *Dark Channel
+
 ![ny 12 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dc.jpg "ny 12 dc") 
 
 *Transmission
+
 ![ny 12 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_t.jpg "ny 12 t")   
 
 *Haze
+
 ![ny 12 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_haze.jpg "ny 12 haze")
 
 *Final
+
 ![ny 12 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dehaze.jpg "ny 12 dehaze") 
 
 *CVPR Final
+
 ![ny 12 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny12/ny12_.jpg "ny 12 dehaze") 
 
  = = =
  
 *Original
+
 ![ny17](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny17/ny17_photo.jpg "ny17") 
 
 *Dark Channel
+
 ![ny 17 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dc.jpg "ny 17 dc") 
 
 *Transmission
+
 ![ny 17 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_t.jpg "ny 17 t")   
 
 *Haze
+
 ![ny 17 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_haze.jpg "ny 17 haze")
 
 *Final
+
 ![ny 17 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dehaze.jpg "ny 17 dehaze") 
 
 *CVPR Final
+
 ![ny 17 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny17/ny17_.jpg "ny 17 dehaze") 
 
  = = =
 
 *Original
+
 ![cones](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/cones/cones.jpg "cones") 
 
 *Dark Channel
+
 ![cones dc](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dc.jpg "cones dc") 
 
 *Transmission
+
 ![cones t](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_t.jpg "cones t")   
 
 *Haze
+
 ![cones haze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_haze.jpg "cones haze")
 
 *Final
+
 ![cones dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dehaze.jpg "cones dehaze") 
 
 *CVPR Final
+
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/cones/cones_.jpg "stadium dehaze") 
 
  = = =
  
 *Original
+
 ![toys](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/stadium1/stadium1.jpg "toys") 
 
 *Dark Channel
+
 ![stadium dc](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dc.jpg "stadium dc") 
 
 *Transmission
+
 ![stadium t](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_t.jpg "stadium t")   
 
 *Haze
+
 ![stadium haze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_haze.jpg "stadium haze")
 
 *Final
+
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dehaze.jpg "stadium dehaze") 
 
 *CVPR Final
+
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/stadium1/stadium1_.jpg "stadium dehaze") 
 
  = = =
  
 *Original
+
 ![toys](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/toys/toys.jpg "toys") 
 
 *Dark Channel
+
 ![toys dc](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dc.jpg "toys dc") 
 
 *Transmission
+
 ![toys t](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_t.jpg "toys t")   
 
 *Haze
+
 ![toys haze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_haze.jpg "toys haze")
 
 *Final
+
 ![toys dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dehaze.jpg "toys dehaze") 
 
 *CVPR Final
+
 ![toys dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/toys/toys_.jpg "toys dehaze") 
 
  = = =
- I attempted the process on a night skyline, to see the results on an image that is very already dark.  It does a decent job, but would be good to see the results with alpha matting.
+ I attempted the process on a night skyline, to see the results on an image that is very already dark.  It does a decent job, but would be good to see the results with alpha matting.  However since the fog glowed from all the light, the image is overall much darker.
+
 *Original
+
 ![ny night](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night.jpg "ny night") 
 
 *Dark Channel
+
 ![ny night dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night_dc.jpg "ny night dc") 
 
 *Transmission
+
 ![ny night t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night_t.jpg "ny night t")   
 
 *Haze
+
 ![ny night haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night_haze.jpg "ny night haze")
 
 *Final
+
 ![ny night dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night_dehaze.jpg "ny night dehaze") 
 
  = = =
