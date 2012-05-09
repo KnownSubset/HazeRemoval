@@ -121,7 +121,7 @@ This is the final image that will have the hazyiness removed.
 
 ![ny 12 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny12/ny12_.jpg "ny 12 dehaze") 
 
- = = =
+---
  
 *Original
 
@@ -147,7 +147,7 @@ This is the final image that will have the hazyiness removed.
 
 ![ny 17 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/ny17/ny17_.jpg "ny 17 dehaze") 
 
- = = =
+---
 
 *Original
 
@@ -173,7 +173,7 @@ This is the final image that will have the hazyiness removed.
 
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/cones/cones_.jpg "stadium dehaze") 
 
- = = =
+---
  
 *Original
 
@@ -199,7 +199,7 @@ This is the final image that will have the hazyiness removed.
 
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/stadium1/stadium1_.jpg "stadium dehaze") 
 
- = = =
+---
  
 *Original
 
@@ -225,7 +225,8 @@ This is the final image that will have the hazyiness removed.
 
 ![toys dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/Supp/toys/toys_.jpg "toys dehaze") 
 
- = = =
+---
+
  I attempted the process on a night skyline, to see the results on an image that is very already dark.  It does a decent job, but would be good to see the results with alpha matting.  However since the fog glowed from all the light, the image is overall much darker.
 
 *Original
@@ -248,7 +249,7 @@ This is the final image that will have the hazyiness removed.
 
 ![ny night dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny_night_dehaze.jpg "ny night dehaze") 
 
- = = =
+---
 
     operation       |    toys 		|  stadium	  	|   cones  		|   ny17 			|  ny12 		|  ny night scene 
     dark channel    |	0:2.970111 	|   0:5.439195  |   0:2.899942  |   0:13.287957 	|  1:-52.578556 |  3:28.651487 
