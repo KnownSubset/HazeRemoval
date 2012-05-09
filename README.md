@@ -4,11 +4,10 @@ HazeRemoval
 Overview
 ====
 
-Haze removal (or dehazing) is the process in computer vision that attempts to remove haze, or fog, from images. The process implemented for this project utilizing the dark channel of images.  
+**I**(**x**) = **J**(**x**)_t_(**x**) + **A**(1 − _t_(**x**))
 
-![dark channel](https://github.com/KnownSubset/HazeRemoval/raw/master/DtSx.jpg "dark channel") 
+Haze removal (or dehazing) is the process in computer vision that attempts to remove haze, or fog, from images. The process implemented for this project utilizing the dark channel of images.  The dark channel is the color channel of the image that has the lowest intensity.  The dark channel prior is based on the following observation on haze-free outdoor images: in most of the non-sky patches, at least one color channel has very low intensity at some pixels. In other words, the minimum intensity in such a patch should has a very low value. 
 
-The dark channel is the color channel of the image that has the lowest intensity.  The dark channel prior is based on the following observation on haze-free outdoor images: in most of the non-sky patches, at least one color channel has very low intensity at some pixels. In other words, the minimum intensity in such a patch should has a very low value. 
 
 #Haze Removal
 
@@ -16,8 +15,9 @@ The dark channel is the color channel of the image that has the lowest intensity
 
 ### Dark Channel
 
-I used 15x15 patches as I iterated over the entire image. For each patch we find the color channel that has the minimum value and use that patch in the final dark channel.
+To calculate the dark channel I iterated over every 15x15 patch in the image. For each patch we find the color channel that has the minimum value and used that patch in the final dark channel.
 
+![dark channel](https://github.com/KnownSubset/HazeRemoval/raw/master/dark_channel.png "dark channel") 
 ######Pseudo-Code
     
     ```matlab
@@ -54,7 +54,10 @@ The atmospheric light is calculated using the dark channel and the original imag
 
 ### Transmission
 
+The transmission is the medium transmission describing the portion of the light that is not scattered and reaches the camera.
+
 ######Pseudo-Code
+
     ```matlab
     cols = size(image, 2);
     rows = size(image, 1);
@@ -66,12 +69,17 @@ The atmospheric light is calculated using the dark channel and the original imag
         end
     end
     ```
+    
+The paper mentions that ω is parameter for each 15x15 patch of the image, that can be fined tuned to keep more haze for the distant objects. I did the same thing that the paper did and fixed it to 0.95 for all results reported.  As an afterthought since the paper's process is able to generate a depth map, it should be able to reconfigure ω.  After generating the first of the depth map, you could reprocess the image utilizing the depth map info for ω.
 
 ### Scene Radiance
 
 This is the final image that will have the hazyiness removed.  
 
+![scene radiance](https://github.com/KnownSubset/HazeRemoval/raw/master/radiance.png "scene radiance") 
+
 ######Pseudo-Code
+
     ```matlab
     cols = size(image, 2);
     rows = size(image, 1);
@@ -87,4 +95,3 @@ This is the final image that will have the hazyiness removed.
     ```
 
 
-since ω is parameterizable and this process is able to generate a depth map.  After generating the first of the depth map, you could reprocess the image utilizing the depth map info for ω.
