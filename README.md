@@ -4,10 +4,9 @@ HazeRemoval
 Overview
 ====
 
-**I**(**x**) = **J**(**x**)_t_(**x**) + **A**(1 − _t_(**x**))
+Haze removal (or dehazing) is the process in computer vision that attempts to remove haze from images. The process implemented for this project utilizes the dark channel of images.  The dark channel for an area within an image, is the color channel of the area that has the lowest intensity.  
 
-Haze removal (or dehazing) is the process in computer vision that attempts to remove haze, or fog, from images. The process implemented for this project utilizing the dark channel of images.  The dark channel is the color channel of the image that has the lowest intensity.  The dark channel prior is based on the following observation on haze-free outdoor images: in most of the non-sky patches, at least one color channel has very low intensity at some pixels. In other words, the minimum intensity in such a patch should has a very low value. 
-
+**I**(**x**) = **J**(**x**)_t_(**x**) + **A**(1 − _t_(**x**)), is the formula largely used to describe haze images.
 
 #Haze Removal
 
@@ -15,11 +14,11 @@ Haze removal (or dehazing) is the process in computer vision that attempts to re
 
 ### Dark Channel
 
-To calculate the dark channel I iterated over every 15x15 patch in the image. For each patch we find the color channel that has the minimum value and used that patch in the final dark channel.
+To calculate the dark channel I iterated over every 15x15 patch in the image. For each patch we find the color channel that has the minimum value and used that patch in the final dark channel combination.
 
 ![dark channel](https://github.com/KnownSubset/HazeRemoval/raw/master/dark_channel.png "dark channel") 
 ######Pseudo-Code
-    
+
     ```matlab
     %image is already available
     cols = size(image, 2);
@@ -32,13 +31,11 @@ To calculate the dark channel I iterated over every 15x15 patch in the image. Fo
     end
     ```
 
-
 ### Atmospheric Light
 
 The atmospheric light is calculated using the dark channel and the original image.  To ensure that we select the brightest pixels that are not objects within the image, you must look at the pixels in the dark channel.  The simple approach used in the paper finds the .1% brightest pixels of the dark channel, then selects the maximum value from those pixels in the original image.
 
 ######Pseudo-Code
-
 
     ```matlab
     %image & dark_channel are already available
@@ -100,52 +97,75 @@ This is the final image that will have the hazyiness removed.
 
 *Dark Channel
 ![ny 12 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dc.jpg "ny 12 dc") 
+
 *Transmission
 ![ny 12 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_t.jpg "ny 12 t")   
+
 *Haze
 ![ny 12 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_haze.jpg "ny 12 haze")
+
 *Final
 ![ny 12 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dehaze.jpg "ny 12 dehaze") 
 
+ = = =
+
 *Dark Channel
 ![ny 17 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dc.jpg "ny 17 dc") 
+
 *Transmission
 ![ny 17 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_t.jpg "ny 17 t")   
+
 *Haze
 ![ny 17 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_haze.jpg "ny 17 haze")
+
 *Final
 ![ny 17 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dehaze.jpg "ny 17 dehaze") 
 
+ = = =
+
 *Dark Channel
 ![cones dc](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dc.jpg "cones dc") 
+
 *Transmission
 ![cones t](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_t.jpg "cones t")   
+
 *Haze
 ![cones haze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_haze.jpg "cones haze")
+
 *Final
 ![cones dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dehaze.jpg "cones dehaze") 
 
+ = = =
 
 *Dark Channel
 ![stadium dc](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dc.jpg "stadium dc") 
+
 *Transmission
 ![stadium t](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_t.jpg "stadium t")   
+
 *Haze
 ![stadium haze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_haze.jpg "stadium haze")
+
 *Final
 ![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dehaze.jpg "stadium dehaze") 
 
+ = = =
+
 *Dark Channel
 ![toys dc](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dc.jpg "toys dc") 
+
 *Transmission
 ![toys t](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_t.jpg "toys t")   
+
 *Haze
 ![toys haze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_haze.jpg "toys haze")
+
 *Final
 ![toys dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dehaze.jpg "toys dehaze") 
 
+ = = =
 
-    operation   	|	toys 		|  stadium	  	|   cones  		|   ny17 			|  ny12 		|  ny night scene 
+    operation       |	toys 		|  stadium	  	|   cones  		|   ny17 			|  ny12 		|  ny night scene 
     dark channel    |	0:2.970111 	|   0:5.439195  |   0:2.899942  |   0:13.287957 	|  1:-52.578556 |  3:28.651487 
     atmospheric     |	0:0.017480	|   0:0.023223  |   0:0.011458  |   0:0.056524		|  0:0.031109	|  0:1.098448  
     transmission    |	0:4.333701	|   0:7.725875  |   0:4.136798  |   0:18.308125		|  0:10.956740	|  5:-7.965656 
