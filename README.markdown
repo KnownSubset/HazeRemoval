@@ -263,3 +263,5 @@ The calculations of the dark channel and the transmission took the longest, whic
 ---
 
 The results from my method seems to work fine with the skyline images, but it completely failed on the toys.  The skylines are all washed out, and I cannot pin point the cause.  A possible reason is that since I did not implement the soft matting, the inconsistencies of the dark channel and transmission map have a direct effect on the scene radiance.  Some patches of images are much darker than the rest, but the paper did mention that "since the scene radiance is usually not as bright as the atmospheric light, the image after haze removal looks dim. So, we increase the exposure of J(x) for display."   
+
+I like the "haze" images since it encapsulates the color channel that contains the dark channel and is interesting to look at. 
