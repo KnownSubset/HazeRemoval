@@ -56,6 +56,8 @@ The atmospheric light is calculated using the dark channel and the original imag
 
 The transmission is the medium transmission describing the portion of the light that is not scattered and reaches the camera.
 
+![transmission](https://github.com/KnownSubset/HazeRemoval/raw/master/transmission.png "transmission") 
+
 ######Pseudo-Code
 
     ```matlab
@@ -94,4 +96,58 @@ This is the final image that will have the hazyiness removed.
     end
     ```
 
+## Results
 
+*Dark Channel
+![ny 12 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dc.jpg "ny 12 dc") 
+*Transmission
+![ny 12 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_t.jpg "ny 12 t")   
+*Haze
+![ny 12 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_haze.jpg "ny 12 haze")
+*Final
+![ny 12 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny12_dehaze.jpg "ny 12 dehaze") 
+
+*Dark Channel
+![ny 17 dc](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dc.jpg "ny 17 dc") 
+*Transmission
+![ny 17 t](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_t.jpg "ny 17 t")   
+*Haze
+![ny 17 haze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_haze.jpg "ny 17 haze")
+*Final
+![ny 17 dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/ny17_dehaze.jpg "ny 17 dehaze") 
+
+*Dark Channel
+![cones dc](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dc.jpg "cones dc") 
+*Transmission
+![cones t](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_t.jpg "cones t")   
+*Haze
+![cones haze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_haze.jpg "cones haze")
+*Final
+![cones dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/cones_dehaze.jpg "cones dehaze") 
+
+
+*Dark Channel
+![stadium dc](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dc.jpg "stadium dc") 
+*Transmission
+![stadium t](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_t.jpg "stadium t")   
+*Haze
+![stadium haze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_haze.jpg "stadium haze")
+*Final
+![stadium dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/stadium_dehaze.jpg "stadium dehaze") 
+
+*Dark Channel
+![toys dc](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dc.jpg "toys dc") 
+*Transmission
+![toys t](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_t.jpg "toys t")   
+*Haze
+![toys haze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_haze.jpg "toys haze")
+*Final
+![toys dehaze](https://github.com/KnownSubset/HazeRemoval/raw/master/toys_dehaze.jpg "toys dehaze") 
+
+
+    operation   	|	toys 		|  stadium	  	|   cones  		|   ny17 			|  ny12 		|  ny night scene 
+    dark channel    |	0:2.970111 	|   0:5.439195  |   0:2.899942  |   0:13.287957 	|  1:-52.578556 |  3:28.651487 
+    atmospheric     |	0:0.017480	|   0:0.023223  |   0:0.011458  |   0:0.056524		|  0:0.031109	|  0:1.098448  
+    transmission    |	0:4.333701	|   0:7.725875  |   0:4.136798  |   0:18.308125		|  0:10.956740	|  5:-7.965656 
+    radiance        |	0:0.016281  |   0:0.033103  |   0:0.015385  |   0:0.139510		|  0:0.048617	|  0:1.840210  
+    total           |	0:7.337573  |   0:13.221396 |   0:7.063583  |   0:32.026976 	|  1:-41.542090 |  8:23.624489 
