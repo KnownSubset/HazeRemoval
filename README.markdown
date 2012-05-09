@@ -22,15 +22,15 @@ To calculate the dark channel I iterated over every 15x15 patch in the image. Fo
 ######Pseudo-Code
 
 ```matlab
-    %image is already available
-    cols = size(image, 2);
-    rows = size(image, 1);
-    dark_channel = zeros(rows, cols);
-    for ix = 8:rows-8
-        for iy = 8:cols-8
-            dark_channel(ix-7:ix+7, iy-7:iy+7) = find_minimum(image(ix-7:ix+7, iy-7:iy+7));
-        end
+%image is already available
+cols = size(image, 2);
+rows = size(image, 1);
+dark_channel = zeros(rows, cols);
+for ix = 8:rows-8
+    for iy = 8:cols-8
+        dark_channel(ix-7:ix+7, iy-7:iy+7) = find_minimum(image(ix-7:ix+7, iy-7:iy+7));
     end
+end
 ```
 
 ### Atmospheric Light
@@ -40,15 +40,15 @@ The atmospheric light is calculated using the dark channel and the original imag
 ######Pseudo-Code
 
 ```matlab
-    %image & dark_channel are already available
-    [cols rows] = size(dark_channel);
-    [vector index] = sort(reshape(dark_channel, cols * rows, []), 1, 'descend');
-    % take the brightest .1% of the dark channel
-    limit = round(cols * rows /1000);
-    for ix = 1:limit
-        vector(ix) = max(image(floor(index(ix)/rows)+1, mod(index(ix),rows)+1,:));
-    end
-    atmospheric_light= max(vector(1:limit));
+%image & dark_channel are already available
+[cols rows] = size(dark_channel);
+[vector index] = sort(reshape(dark_channel, cols * rows, []), 1, 'descend');
+% take the brightest .1% of the dark channel
+limit = round(cols * rows /1000);
+for ix = 1:limit
+    vector(ix) = max(image(floor(index(ix)/rows)+1, mod(index(ix),rows)+1,:));
+end
+atmospheric_light= max(vector(1:limit));
 ```
 
 ### Transmission
@@ -60,15 +60,15 @@ The transmission is the medium transmission describing the portion of the light 
 ######Pseudo-Code
 
 ```matlab
-    cols = size(image, 2);
-    rows = size(image, 1);
-    t = zeros(rows, cols);
-    w = .95;
-    for ix = 8:rows-8
-        for iy = 8:cols-8
-            t(ix-7:ix+7, iy-7:iy+7) = calculate_transmission(image(ix-7:ix+7, iy-7:iy+7), atmospheric_light, w);
-        end
-    end
+cols = size(image, 2);
+rows = size(image, 1);
+t = zeros(rows, cols);
+w = .95;
+for ix = 8:rows-8
+	for iy = 8:cols-8
+		t(ix-7:ix+7, iy-7:iy+7) = calculate_transmission(image(ix-7:ix+7, iy-7:iy+7), atmospheric_light, w);
+	end
+end
 ```
     
 The paper mentions that ω is parameter for each 15x15 patch of the image, that can be fined tuned to keep more haze for the distant objects. I did the same thing that the paper did and fixed it to 0.95 for all results reported.  As an afterthought since the paper's process is able to generate a depth map, it should be able to reconfigure ω.  After generating the first of the depth map, you could reprocess the image utilizing the depth map info for ω.
@@ -82,17 +82,17 @@ This is the final image that will have the hazyiness removed.
 ######Pseudo-Code
 
 ```matlab
-    cols = size(image, 2);
-    rows = size(image, 1);
-    r = zeros(rows, cols, 3);
-    t(:,:,1) = transmission;
-    for ic = 1:3
-        for ix = 1:rows
-            for iy = 1:cols
-                r(ix, iy, ic) = (image(ix, iy, ic) - atmospheric_light) / (max(t(ix, iy), .1)) + atmospheric_light;
-            end
-        end
+cols = size(image, 2);
+rows = size(image, 1);
+r = zeros(rows, cols, 3);
+t(:,:,1) = transmission;
+for ic = 1:3
+    for ix = 1:rows
+        for iy = 1:cols
+            r(ix, iy, ic) = (image(ix, iy, ic) - atmospheric_light) / (max(t(ix, iy), .1)) + atmospheric_light;
+         end
     end
+end
 ```
 
 ## Results
