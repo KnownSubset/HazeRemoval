@@ -21,7 +21,7 @@ To calculate the dark channel I iterated over every 15x15 patch in the image. Fo
 ![dark channel](https://github.com/KnownSubset/HazeRemoval/raw/master/dark_channel.png "dark channel") 
 ######Pseudo-Code
 
-    ```matlab
+```matlab
     %image is already available
     cols = size(image, 2);
     rows = size(image, 1);
@@ -31,7 +31,7 @@ To calculate the dark channel I iterated over every 15x15 patch in the image. Fo
             dark_channel(ix-7:ix+7, iy-7:iy+7) = find_minimum(image(ix-7:ix+7, iy-7:iy+7));
         end
     end
-    ```
+```
 
 ### Atmospheric Light
 
@@ -39,7 +39,7 @@ The atmospheric light is calculated using the dark channel and the original imag
 
 ######Pseudo-Code
 
-    ```matlab
+```matlab
     %image & dark_channel are already available
     [cols rows] = size(dark_channel);
     [vector index] = sort(reshape(dark_channel, cols * rows, []), 1, 'descend');
@@ -49,7 +49,7 @@ The atmospheric light is calculated using the dark channel and the original imag
         vector(ix) = max(image(floor(index(ix)/rows)+1, mod(index(ix),rows)+1,:));
     end
     atmospheric_light= max(vector(1:limit));
-    ```
+```
 
 ### Transmission
 
@@ -59,7 +59,7 @@ The transmission is the medium transmission describing the portion of the light 
 
 ######Pseudo-Code
 
-    ```matlab
+```matlab
     cols = size(image, 2);
     rows = size(image, 1);
     t = zeros(rows, cols);
@@ -69,7 +69,7 @@ The transmission is the medium transmission describing the portion of the light 
             t(ix-7:ix+7, iy-7:iy+7) = calculate_transmission(image(ix-7:ix+7, iy-7:iy+7), atmospheric_light, w);
         end
     end
-    ```
+```
     
 The paper mentions that ω is parameter for each 15x15 patch of the image, that can be fined tuned to keep more haze for the distant objects. I did the same thing that the paper did and fixed it to 0.95 for all results reported.  As an afterthought since the paper's process is able to generate a depth map, it should be able to reconfigure ω.  After generating the first of the depth map, you could reprocess the image utilizing the depth map info for ω.
 
@@ -81,7 +81,7 @@ This is the final image that will have the hazyiness removed.
 
 ######Pseudo-Code
 
-    ```matlab
+```matlab
     cols = size(image, 2);
     rows = size(image, 1);
     r = zeros(rows, cols, 3);
@@ -93,7 +93,7 @@ This is the final image that will have the hazyiness removed.
             end
         end
     end
-    ```
+```
 
 ## Results
  
